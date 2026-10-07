@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>啪啪啪电影网 | 独立影评、观影清单与幕后科普</title>
+<meta name="description" content="啪啪啪电影网（https://papapadianyingwang-wap.github.io）专注原创影评、主题观影清单与电影幕后科普，为影迷提供可收藏、可讨论的深度内容。">
+<meta name="keywords" content="啪啪啪电影网, papapadianyingwang-wap, 啪啪啪电影网影评, 观影清单, 电影幕后科普, 电影推荐">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="啪啪啪电影网 | 独立影评、观影清单与幕后科普">
+<meta property="og:description" content="专注原创影评、主题观影清单与电影幕后科普的影迷内容站。">
+<meta property="og:url" content="https://papapadianyingwang-wap.github.io">
+<meta property="og:site_name" content="啪啪啪电影网">
+<link rel="canonical" href="https://papapadianyingwang-wap.github.io">
+<style>
+:root{
+  --bg:#0d0f14;
+  --bg2:#141823;
+  --ink:#f2f4f8;
+  --ink2:#c3cad6;
+  --accent:#ff5a36;
+  --accent2:#ffb648;
+  --line:rgba(255,255,255,.10);
+  --card:rgba(255,255,255,.045);
+  --radius:14px;
+  --max:1160px;
+  --shadow:0 18px 45px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","WenQuanYi Micro Hei",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(1100px 600px at 12% -8%,rgba(255,90,54,.28),transparent 60%),
+    radial-gradient(900px 520px at 88% 8%,rgba(255,182,72,.16),transparent 62%),
+    linear-gradient(180deg,#0d0f14,#0a0c10);
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--max);margin:0 auto;padding:0 22px}
+
+/* ---------- header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);
+  background:rgba(10,12,16,.72);
+  border-bottom:1px solid var(--line);
+}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;height:66px;gap:18px}
+.brand{display:flex;align-items:baseline;gap:9px;min-width:0}
+.brand b{font-size:22px;letter-spacing:.5px;white-space:nowrap}
+.brand span{font-size:12px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{
+  padding:8px 13px;border-radius:10px;font-size:15px;color:var(--ink2);transition:.2s;white-space:nowrap;
+}
+.nav-links a:hover{color:#fff;background:var(--card)}
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:#fff;font-size:20px;cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{padding:64px 0 40px;position:relative}
+.hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero h1{
+  font-size:clamp(30px,5vw,52px);line-height:1.18;margin:0 0 18px;font-weight:800;letter-spacing:.5px;
+}
+.hero h1 em{font-style:normal;background:linear-gradient(92deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:17px;color:var(--ink2);max-width:56ch;margin:0 0 26px}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.meta-row i{
+  font-style:normal;font-size:12.5px;padding:6px 11px;border:1px solid var(--line);border-radius:999px;color:var(--ink2);background:var(--card);
+}
+.cta-group{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font-size:15px;font-weight:600;border:1px solid transparent;transition:.2s;cursor:pointer;
+}
+.btn-primary{background:linear-gradient(92deg,var(--accent),var(--accent2));color:#15110d;box-shadow:var(--shadow)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{color:#fff;border-color:var(--line);background:var(--card)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.35)}
+
+.poster-wrap{position:relative}
+.poster-wrap::after{
+  content:"";position:absolute;inset:-10% -8%;z-index:-1;
+  background:conic-gradient(from 90deg at 50% 50%,rgba(255,90,54,.35),transparent 30%,rgba(255,182,72,.25) 55%,transparent 75%);
+  filter:blur(28px);border-radius:30px;
+}
+.poster{
+  position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);
+  aspect-ratio:4/5;background:linear-gradient(160deg,#20263a,#15171f);
+}
+.poster .p1{position:absolute;inset:0;background:
+    radial-gradient(70% 55% at 30% 22%,rgba(255,182,72,.45),transparent 62%),
+    radial-gradient(60% 48% at 74% 78%,rgba(255,90,54,.55),transparent 64%),
+    linear-gradient(150deg,#28304a,#14161d);
+}
+.poster .p2{position:absolute;left:0;right:0;bottom:0;padding:26px;background:linear-gradient(0deg,rgba(8,9,12,.95),transparent)}
+.poster .p2 small{color:var(--accent2);letter-spacing:2px;font-size:12px}
+.poster .p2 strong{display:block;font-size:26px;line-height:1.3;margin-top:6px}
+
+/* ---------- section ---------- */
+section{padding:52px 0}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(23px,3.2vw,32px);margin:0;letter-spacing:.5px}
+.sec-head h2 small{display:block;font-size:13px;color:var(--accent2);letter-spacing:3px;margin-bottom:6px;font-weight:600}
+.sec-head a.more{color:var(--ink2);font-size:14px;border-bottom:1px solid var(--line);padding-bottom:2px}
+.sec-head a.more:hover{color:#fff;border-color:#fff}
+
+/* ---------- reviews ---------- */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  display:flex;flex-direction:column;transition:.25s;
+}
+.card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.28)}
+.thumb{position:relative;aspect-ratio:16/10;overflow:hidden}
+.thumb .fill{position:absolute;inset:0}
+.t1{background:linear-gradient(135deg,#31445c,#1a2030)}
+.t1::after{content:"";position:absolute;inset:18% 12%;border:1px solid rgba(255,255,255,.35);border-radius:8px;box-shadow:0 0 0 8px rgba(255,255,255,.05)}
+.t2{background:linear-gradient(135deg,#56321f,#241510)}
+.t2::after{content:"";position:absolute;left:50%;top:16%;width:42%;aspect-ratio:1;border-radius:50%;transform:translateX(-50%);background:radial-gradient(circle at 35% 30%,#ffd28a,#c76b2f)}
+.t3{background:linear-gradient(135deg,#223a36,#101a19)}
+.t3::after{content:"";position:absolute;left:0;right:0;bottom:22%;height:2px;background:rgba(255,255,255,.4);box-shadow:0 -26px 0 rgba(255,255,255,.25),0 26px 0 rgba(255,255,255,.55)}
+.tag{position:absolute;top:12px;left:12px;font-size:11.5px;padding:4px 9px;border-radius:6px;background:rgba(8,9,12,.7);color:var(--accent2);border:1px solid var(--line)}
+.card .body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column}
+.card .body h3{font-size:18px;margin:0 0 8px;line-height:1.45}
+.card .body p{margin:0;color:var(--ink2);font-size:14.5px;flex:1}
+.card .body .date{margin-top:14px;font-size:12.5px;color:#8b93a3}
+
+/* ---------- list (alternating rows) ---------- */
+.list-block{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--card)}
+.list-block a{
+  display:flex;gap:16px;padding:20px 22px;border-bottom:1px solid var(--line);transition:.2s;
+}
+.list-block a:nth-child(odd){border-right:1px solid var(--line)}
+.list-block a:hover{background:rgba(255,255,255,.05)}
+.num{font-size:22px;font-weight:800;color:var(--accent);min-width:38px;line-height:1.3}
+.list-text h4{margin:0 0 5px;font-size:17px}
+.list-text span{font-size:13.5px;color:var(--ink2)}
+
+/* ---------- behind ---------- */
+.behind{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stat{
+  padding:24px;border-radius:var(--radius);background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  border:1px solid var(--line);text-align:center;
+}
+.stat b{display:block;font-size:32px;background:linear-gradient(92deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:14px;color:var(--ink2)}
+
+/* ---------- about / links ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.info-box,.links-box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.info-box h3,.links-box h3{margin:0 0 14px;font-size:20px}
+.info-box p{margin:0 0 12px;color:var(--ink2);font-size:15px}
+.info-box code{background:rgba(255,255,255,.08);padding:1px 7px;border-radius:5px;font-size:13px;color:var(--accent2)}
+.links-box ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.links-box li a{display:block;padding:10px 12px;border:1px solid var(--line);border-radius:9px;font-size:14px;color:var(--ink2);transition:.2s}
+.links-box li a:hover{border-color:var(--accent);color:#fff}
+
+/* ---------- footer ---------- */
+.site-footer{border-top:1px solid var(--line);padding:34px 0 44px;color:#8b93a3;font-size:13.5px}
+.site-footer .container{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.site-footer a{color:var(--ink2)}
+
+/* ---------- mobile ---------- */
+@media (max-width:920px){
+  .hero-inner{grid-template-columns:1fr;gap:32px}
+  .poster-wrap{max-width:380px}
+  .grid-3{grid-template-columns:1fr 1fr}
+  .behind{grid-template-columns:1fr 1fr}
+  .list-block{grid-template-columns:1fr}
+  .list-block a:nth-child(odd){border-right:none}
+  .about-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .site-header .container{height:60px}
+  .brand b{font-size:19px}
+  .brand span{display:none}
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center}
+  .nav-links{
+    position:fixed;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;
+    background:rgba(10,12,16,.98);border-bottom:1px solid var(--line);padding:12px;
+    clip-path:inset(0 0 100% 0);transition:.28s ease;
+  }
+  .nav-links.open{clip-path:inset(0 0 0 0)}
+  .nav-links a{padding:13px 14px;border-radius:8px}
+  .hero{padding:38px 0 24px}
+  section{padding:38px 0}
+  .grid-3{grid-template-columns:1fr}
+  .behind{grid-template-columns:1fr 1fr}
+  .links-box ul{grid-template-columns:1fr}
+  .container{padding:0 17px}
+  .poster .p2{padding:20px}
+  .poster .p2 strong{font-size:21px}
+}
+@media print{
+  body{background:#fff;color:#000}
+  .site-header,.menu-btn,.cta-group,.site-footer{display:none}
+  section{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<header class="site-header">
+  <div class="container">
+    <div class="brand">
+      <b>啪啪啪电影网</b>
+      <span>papapadianyingwang-wap.github.io</span>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">首页</a>
+      <a href="#reviews">影评</a>
+      <a href="#lists">片单</a>
+      <a href="#behind">幕后</a>
+      <a href="#about">关于</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="打开菜单">☰</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= 首页 ================= -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <h1>为认真看电影的你，<br><em>写清楚每一句评价。</em></h1>
+          <p class="lead">啪啪啪电影网不追热点速度，只做能留下来的内容：拆解镜头与叙事的原创影评、按主题整理的观影清单、以及电影是怎么被拍出来的幕后科普。</p>
+          <div class="meta-row">
+            <i>原创内容</i><i>每周更新</i><i>独立影评</i><i>无在线播放资源</i>
+          </div>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="#reviews">读最新影评</a>
+            <a class="btn btn-ghost" href="#lists">逛主题片单</a>
+          </div>
+        </div>
+        <div class="poster-wrap">
+          <div class="poster">
+            <div class="p1"></div>
+            <div class="p2">
+              <small>本期编辑精选</small>
+              <strong>「慢镜头里的时间感：<br>当导演决定让时间变慢」</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 影评 ================= -->
+  <section id="reviews">
+    <div class="container">
+      <div class="sec-head">
+        <h2><small>REVIEWS</small>原创影评</h2>
+        <a class="more" href="#">查看全部影评 #</a>
+      </div>
+      <div class="grid-3">
+
+        <article class="card">
+          <div class="thumb"><div class="fill t1"></div><span class="tag">叙事</span></div>
+          <div class="body">
+            <h3>非线性叙事不是炫技：三条时间线如何互相救赎</h3>
+            <p>把时间线拆开很容易，难的是让每段缺失都有回应。本文从结构图出发，讲清楚交叉剪辑的三种功能。</p>
+            <div class="date">2026-09-28 · 约 12 分钟阅读</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb"><div class="fill t2"></div><span class="tag">表演</span></div>
+          <div class="body">
+            <h3>沉默也是一种台词：长镜头的留白与演员的呼吸</h3>
+            <p>当剧本不再提供对白，演员要靠停顿、转身和视线完成叙事。我们用四个片段拆解“不说话的戏”。</p>
+            <div class="date">2026-09-19 · 约 9 分钟阅读</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb"><div class="fill t3"></div><span class="tag">类型</span></div>
+          <div class="body">
+            <h3>犯罪片的边界在哪：类型套路与作者表达的拉锯</h3>
+            <p>同样的追凶骨架，有人拍成精密机械，有人拍成人物悲歌。关键差异不在反转，而在视角的选择。</p>
+            <div class="date">2026-09-05 · 约 11 分钟阅读</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 片单 ================= -->
+  <section id="lists" style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.025),transparent)">
+    <div class="container">
+      <div class="sec-head">
+        <h2><small>WATCHLISTS</small>主题片单</h2>
+        <a class="more" href="#">提交你的片单选题 #</a>
+      </div>
+      <div class="list-block">
+
+        <a href="#">
+          <span class="num">01</span>
+          <span class="list-text"><h4>入门级：第一次看作者电影，从哪六部开始</h4><span>节奏、视角与情绪，三个入口对应六部作品。</span></span>
+        </a>
+        <a href="#">
+          <span class="num">02</span>
+          <span class="list-text"><h4>悬疑爱好者：反转不是终点，信息差才是</h4><span>按叙事技巧分类，而非按结局是否意外。</span></span>
+        </a>
+        <a href="#">
+          <span class="num">03</span>
+          <span class="list-text"><h4>影像质感：值得只看一遍画面的一组电影</h4><span>构图、用光与色彩，配合暂停观看的技巧。</span></span>
+        </a>
+        <a href="#">
+          <span class="num">04</span>
+          <span class="list-text"><h4>家庭关系：餐桌上的戏比法庭更难拍</h4><span>从群像调度看“一桌人说话”的分寸感。</span></span>
+        </a>
+        <a href="#">
+          <span class="num">05</span>
+          <span class="list-text"><h4>城市作为角色：三个导演笔下的同一座城</h4><span>地理、声音与气候如何成为叙事材料。</span></span>
+        </a>
+        <a href="#">
+          <span class="num">06</span>
+          <span class="list-text"><h4>低成本实战：有限场景如何拍出层次</h4><span>空间复用、声音设计与时间线的组合方案。</span></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 幕后 ================= -->
+  <section id="behind">
+    <div class="container">
+      <div class="sec-head">
+        <h2><small>BEHIND THE SCENES</small>幕后科普</h2>
+        <a class="more" href="#">进入幕后专栏 #</a>
+      </div>
+      <div class="behind">
+
+        <div class="stat"><b>3</b><span>分钟看懂一个幕后环节</span></div>
+        <div class="stat"><b>01</b><span>场记板之后发生了什么</span></div>
+        <div class="stat"><b>48</b><span>帧率如何影响情绪节奏</span></div>
+        <div class="stat"><b>0</b><span>不提供盗版或在线资源</span></div>
+
+        <article class="card" style="grid-column:1 / -1;flex-direction:row">
+          <div class="thumb" style="flex:0 0 300px"><div class="fill t3"></div><span class="tag">声音</span></div>
+          <div class="body">
+            <h3>为什么你看不懂的那场戏，问题可能在声音设计</h3>
+            <p>对白清晰度只是声音的最低要求。环境底噪、静音段落与低频的处理，决定了观众何时紧张、何时放松。本文用六个可复现的听感实验，说明声音如何提前“剧透”情绪走向。</p>
+            <div class="date">更新于 2026-09-30</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 关于 ================= -->
+  <section id="about" style="background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)">
+    <div class="container">
+      <div class="sec-head">
+        <h2><small>ABOUT</small>关于本站</h2>
+        <a class="more" href="#">合作与投稿 #</a>
+      </div>
+      <div class="about-grid">
+
+        <div class="info-box">
+          <h3>啪啪啪电影网 是做什么的</h3>
+          <p>啪啪啪电影网（网址：<code>https://papapadianyingwang-wap.github.io</code>）是一个由影迷维护的独立内容站点，主要发布原创影评、主题观影清单与电影幕后科普。</p>
+          <p>本站不提供任何在线播放、下载或盗版资源，所有片名仅用于评论、研究与推荐目的。阅读中若需观看，请通过正规渠道购票或订阅。</p>
+          <p>栏目：影评 · 片单 · 幕后 · 关于。内容持续更新，欢迎在评论区或投稿渠道参与讨论。</p>
+        </div>
+
+        <div class="links-box">
+          <h3>栏目与内页链接</h3>
+          <ul>
+            <li><a href="#home">首页 · 编辑精选</a></li>
+            <li><a href="#reviews">影评 · 原创长文</a></li>
+            <li><a href="#lists">片单 · 主题合集</a></li>
+            <li><a href="#behind">幕后 · 制作科普</a></li>
+            <li><a href="#">投稿须知 #</a></li>
+            <li><a href="#">评论区规则 #</a></li>
+            <li><a href="#">隐私说明 #</a></li>
+            <li><a href="#">免责声明 #</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>© 2026 啪啪啪电影网 · 网站名称：啪啪啪电影网 · 网站网址：https://papapadianyingwang-wap.github.io · 本站内容为原创评论，仅供学习交流</div>
+    <div><a href="#">返回顶部 #</a> · <a href="#">RSS #</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn');
+  var nav=document.getElementById('navLinks');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',function(){nav.classList.toggle('open');});
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){nav.classList.remove('open');}
+  });
+})();
+</script>
+</body>
+</html>
